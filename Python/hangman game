@@ -1,0 +1,27 @@
+import random # This imports the random funtion
+print ("Hello, welcome to hangman") # this will print the words within the brackets
+print ("what is your name?") # this will print wgat is in the brackets
+myname = input()
+print (myname + '...' + "Ready to play hangman? ")
+print ("I am thinking of a word. " +  myname + ',' '' " can you guess the word? ")
+t =int (input("Please guess a letter "))
+myletter=random.randint(a,z)
+print (myletter)
+mylives = int(10)# This is setting the function for 'mylives', it now has a value of 10
+while mylives > 0:# 
+    if t < mynum:
+        print('The number ')# this will print waht is in the brackets
+        print('Number of lives remaining:', mylives)
+        mylives = (mylives - 1)# This is the code which deducts a live by minusing 1 from 10 each time you get the answer wrong
+        print('Take another guess')# this will print what is in the brackets
+        myletter = input()# this code allows the user to enter another number
+        myletter = int(myletter)# this code will take the number that the user input and try to match it up with the number the computer is guessing
+    elif t > mynum:
+        print('The number is lower')
+        print('Number of lives remaining:', mylives)
+        mylives = (mylives - 1)# this will deduct a life from the 10 lives if the answer is incorrect
+        print('Take another guess')
+        mynum = input() # The user can reenter a number
+        mynum = int(mynum) # this code will take the number that the user input and try to match it up with the number that the computer is guessing
+    if t == mynum:
+        print('Correct ' + myname + '!') # this will print the text in the brackets
