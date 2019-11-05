@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MyCustomerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="MyCustomerModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="MyCustomerModel.Customer" />
+    <EntitySet Name="Hires" EntityType="MyCustomerModel.Hire" />
+    <EntitySet Name="Vehicles" EntityType="MyCustomerModel.Vehicle" />
+    <EntitySet Name="Outlets" EntityType="MyCustomerModel.Outlet" />
+    <EntitySet Name="Staffs" EntityType="MyCustomerModel.Staff" />
+    <AssociationSet Name="OutletStaff" Association="MyCustomerModel.OutletStaff">
+      <End Role="Outlet" EntitySet="Outlets" />
+      <End Role="Staff" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="OutletVehicle" Association="MyCustomerModel.OutletVehicle">
+      <End Role="Outlet" EntitySet="Outlets" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerHire" Association="MyCustomerModel.CustomerHire">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Hire" EntitySet="Hires" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerVehicle" Association="MyCustomerModel.CustomerVehicle">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_Name" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="L_Name" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Drivers_license" Type="String" Nullable="false" MaxLength="10" />
+    <Property Name="Phone_no" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" />
+    <Property Name="PostCode" Type="String" Nullable="false" MaxLength="7" />
+    <NavigationProperty Name="Hires" Relationship="MyCustomerModel.CustomerHire" FromRole="Customer" ToRole="Hire" />
+    <NavigationProperty Name="Vehicles" Relationship="MyCustomerModel.CustomerVehicle" FromRole="Customer" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Hire">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DaysRented" Type="Int16" Nullable="false" />
+    <Property Name="FaultFound" Type="String" Nullable="false" MaxLength="3" />
+    <Property Name="FaultDetails" Type="String" Nullable="false" MaxLength="Max" />
+    <NavigationProperty Name="Customer" Relationship="MyCustomerModel.CustomerHire" FromRole="Hire" ToRole="Customer" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Reg" />
+    </Key>
+    <Property Name="Reg" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Make" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Model" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Mileage" Type="Int32" Nullable="false" />
+    <Property Name="FuelType" Type="String" Nullable="false" MaxLength="6" />
+    <Property Name="EngineSize" Type="String" Nullable="false" MaxLength="5" />
+    <NavigationProperty Name="Outlet" Relationship="MyCustomerModel.OutletVehicle" FromRole="Vehicle" ToRole="Outlet" />
+    <Property Name="OutletId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="MyCustomerModel.CustomerVehicle" FromRole="Vehicle" ToRole="Customer" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Outlet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" />
+    <NavigationProperty Name="Staffs" Relationship="MyCustomerModel.OutletStaff" FromRole="Outlet" ToRole="Staff" />
+    <NavigationProperty Name="Vehicles" Relationship="MyCustomerModel.OutletVehicle" FromRole="Outlet" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="6" />
+    <Property Name="Salary" Type="Int32" Nullable="false" />
+    <Property Name="StreetAddress" Type="String" Nullable="false" MaxLength="Max" />
+    <Property Name="Ni_no" Type="String" Nullable="false" MaxLength="9" />
+    <NavigationProperty Name="Outlet" Relationship="MyCustomerModel.OutletStaff" FromRole="Staff" ToRole="Outlet" />
+    <Property Name="OutletId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="OutletStaff">
+    <End Type="MyCustomerModel.Outlet" Role="Outlet" Multiplicity="1" />
+    <End Type="MyCustomerModel.Staff" Role="Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outlet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="OutletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OutletVehicle">
+    <End Type="MyCustomerModel.Outlet" Role="Outlet" Multiplicity="1" />
+    <End Type="MyCustomerModel.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outlet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="OutletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerHire">
+    <End Type="MyCustomerModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="MyCustomerModel.Hire" Role="Hire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hire">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerVehicle">
+    <End Type="MyCustomerModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="MyCustomerModel.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

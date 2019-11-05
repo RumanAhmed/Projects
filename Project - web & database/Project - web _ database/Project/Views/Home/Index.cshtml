@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    
+    <div>
+        <img src="/Images/rr.png" class="img-center" height="200" width="800" />
+    </div><br />
+    <p class="lead">Welcome to Reliable Rentals.</p>
+    <p><a href="/home/cars">Rent a car now </a></p>
+
+
+    
+
+</div>
+
+<button type ="button" onclick="location.href='@Url.Action("Register","Account")'">Register an account with us Today!</button>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Rent a car today!</h2>
+        <p>
+            Rent a car with us today through our website, hassle free. Simply enter your details and we will get back to you within minutes.
+        </p>
+        <p><a class="btn btn-default" href="/Home/About">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Many cars in stock</h2>
+        <p>We have various cars in stock, ranging from different makes and models.</p>
+        <p><a class="btn btn-default" href="/Home/Cars">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Many locations to choose from</h2>
+        <p>We have many locations to choose from scattered throughout northwales, return the car to any of our outlets that is most convenient for you and we will sort out the rest. </p>
+        <p><a class="btn btn-default" href="/Home/Contact">Learn more &raquo;</a></p>
+    </div>
+</div>

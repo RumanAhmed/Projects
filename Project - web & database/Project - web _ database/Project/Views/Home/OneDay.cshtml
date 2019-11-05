@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "OneDay";
+}
+
+    <a class="btn btn-default" href="javascript:history.back()">Back &raquo;</a>
+    <div class="jumbotron">
+        <h1>Rent this car for 1 day.</h1>
+        <br />
+        <h2>Here is the information for renting this car.</h2>
+
+
+
+
+
+        <address>
+            Duration = 1 day <br />
+            Price = £30 <br />
+            Wrexham, LL13 0NP<br />
+            <abbr title="Phone">P:</abbr>
+            01978 545654
+        </address>
+
+        <h3> Pick up today </h3>
+        <script type="text/javascript">
+            document.write('<p>Current date is: <span id="date-time">', new Date().toLocaleString(), '<\/span>.<\/p>')
+            if (document.getElementById) onload = function () {
+                setInterval("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50)
+            }
+
+        </script>
+
+
+        <h3>Please enter a pick up date (mm/dd/yyyy) and press follow return date to show when the car needs to be returned.</h3>
+
+        <p>
+            Date:
+            <input id="txtDate" type="text" />
+        </p>
+        <p>
+            <input type="button" onclick="getdate()" value="Follow return Date" />
+        </p>
+        <p>
+            Follow Date:
+            <input id="follow_Date" type="text" />
+        </p>
+
+        <script>
+            function getdate() {
+                var tt = document.getElementById('txtDate').value;
+
+                var date = new Date(tt);
+                var newdate = new Date(date);
+
+                newdate.setDate(newdate.getDate() + 1);
+
+                var dd = newdate.getDate();
+                var mm = newdate.getMonth() + 1;
+                var y = newdate.getFullYear();
+
+                var someFormattedDate = mm + '/' + dd + '/' + y;
+                document.getElementById('follow_Date').value = someFormattedDate;
+            }
+        </script>
+
+        <p><a class="btn btn-default" href="/Home/RentOneDay">Rent now! &raquo;</a></p>
+    </div>

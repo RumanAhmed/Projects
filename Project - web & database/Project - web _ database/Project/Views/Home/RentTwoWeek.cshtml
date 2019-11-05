@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "RentTwoWeek";
+}
+
+<h2>Rent for 2 WEEKS</h2>
+
+<br />
+<h3>Summary</h3>
+<address>
+    Duration = 2 WEEKS <br />
+    Price = £420 <br />
+    Wrexham, LL13 0NP<br />
+    <abbr title="Phone">P:</abbr>
+    01978 545654
+</address>
+
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Save</title>
+</head>
+<body>
+    <div>
+        <script type="text/javascript">
+
+
+            function show_alert() {
+
+                var msg = "Congratulations you haved booked this car 2 Weeks!";
+
+                alert(msg);
+
+            }
+
+        </script>
+        @Html.DropDownList("VehivleList1", ViewBag.vehiclelistname as SelectList, "Please select a car")
+        <form action="/Home/RntTwoW" method="post">
+            First Name: <input type="text" id="TxtFName" name="F_name" value="" /><br />
+            Last Name: <input type="text" id="TxtLName" name="L_name" value="" /><br />
+            Company Name: <input type="text" id="TxtCName" name="Company_name" value="" /><br />
+            Address: <input type="text" id="TxtAddress" name="Address" value="" /><br />
+            Drivers License: <input type="text" id="TxtLicense" name="Drivers_license_no" value="" /><br />
+            Phone number: <input type="text" id="TxtNumber" name="Phone_number" value="" /><br />
+            <input type="submit" name="BtnSave" value="Click here to book" OnClick="show_alert()" />
+        </form>
+    </div>
+</body>
+</html>
+

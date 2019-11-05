@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="myDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer/Business customer">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Name="Customer_id" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="Hire_no" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="F_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="L_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Company_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="D_o_b" Type="date" Nullable="false" />
+    <Property Name="Drivers_license_no" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Phone_no" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Post_code" Type="nchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hire_details">
+    <Key>
+      <PropertyRef Name="Hire_no" />
+    </Key>
+    <Property Name="Hire_no" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="Days_rented" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Date_checked" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fault_found" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fault_details" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Outlet">
+    <Key>
+      <PropertyRef Name="Outlet_Id" />
+    </Key>
+    <Property Name="Outlet_Id" Type="nchar" MaxLength="7" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Staff_Id" />
+    </Key>
+    <Property Name="Staff_Id" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="S_f_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="S_l_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Street_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ni_no" Type="nchar" MaxLength="9" Nullable="false" />
+    <Property Name="Salary" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Outlet_Id" Type="nchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Vehicle_reg" />
+    </Key>
+    <Property Name="Vehicle_reg" Type="nchar" MaxLength="7" Nullable="false" />
+    <Property Name="Make" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Outlet_Id" Type="nchar" MaxLength="7" Nullable="false" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Milage" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Mot_date" Type="date" Nullable="false" />
+    <Property Name="Hire_Rate" Type="nvarchar" MaxLength="7" Nullable="false" />
+    <Property Name="Engine_size" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fuel_type" Type="nchar" MaxLength="6" Nullable="false" />
+    <Property Name="Hire_no" Type="nchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="myDbModelStoreContainer">
+    <EntitySet Name="Customer/Business customer" EntityType="Self.Customer/Business customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hire_details" EntityType="Self.Hire_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Outlet" EntityType="Self.Outlet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

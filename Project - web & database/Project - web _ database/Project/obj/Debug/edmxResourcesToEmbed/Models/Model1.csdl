@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="myDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer_Business_customer">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Name="Customer_id" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="F_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="L_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="D_o_b" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Drivers_license_no" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Phone_no" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Post_code" Type="String" MaxLength="7" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Hire_details" Relationship="myDbModel.Customer_Business_customerHire_details" FromRole="Customer_Business_customer" ToRole="Hire_details" />
+    <NavigationProperty Name="Vehicle" Relationship="myDbModel.Customer_Business_customerVehicle" FromRole="Customer_Business_customer" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Hire_details">
+    <Key>
+      <PropertyRef Name="Hire_no" />
+    </Key>
+    <Property Name="Hire_no" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Days_rented" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Date_checked" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Fault_found" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Fault_details" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Customer_Business_customer" Relationship="myDbModel.Customer_Business_customerHire_details" FromRole="Hire_details" ToRole="Customer_Business_customer" />
+  </EntityType>
+  <EntityType Name="Outlet">
+    <Key>
+      <PropertyRef Name="Outlet_Id" />
+    </Key>
+    <Property Name="Outlet_Id" Type="String" MaxLength="7" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Vehicles" Relationship="myDbModel.OutletVehicle" FromRole="Outlet" ToRole="Vehicle" />
+    <NavigationProperty Name="Staffs" Relationship="myDbModel.OutletStaff" FromRole="Outlet" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Staff_Id" />
+    </Key>
+    <Property Name="Staff_Id" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="S_f_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="S_l_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ni_no" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="Outlet" Relationship="myDbModel.OutletStaff" FromRole="Staff" ToRole="Outlet" />
+    <Property Name="OutletOutlet_Id" Type="String" Nullable="false" MaxLength="7" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Vehicle_reg" />
+    </Key>
+    <Property Name="Vehicle_reg" Type="String" MaxLength="7" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Milage" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mot_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hire_Rate" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Engine_size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fuel_type" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Outlet" Relationship="myDbModel.OutletVehicle" FromRole="Vehicle" ToRole="Outlet" />
+    <Property Name="OutletOutlet_Id" Type="String" Nullable="false" MaxLength="7" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Customer_Business_customer" Relationship="myDbModel.Customer_Business_customerVehicle" FromRole="Vehicle" ToRole="Customer_Business_customer" />
+  </EntityType>
+  <EntityContainer Name="myDbEntities8" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customer_Business_customer" EntityType="Self.Customer_Business_customer" />
+    <EntitySet Name="Hire_details" EntityType="Self.Hire_details" />
+    <EntitySet Name="Outlets" EntityType="Self.Outlet" />
+    <EntitySet Name="Staffs" EntityType="Self.Staff" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+    <AssociationSet Name="Customer_Business_customerHire_details" Association="myDbModel.Customer_Business_customerHire_details">
+      <End Role="Customer_Business_customer" EntitySet="Customer_Business_customer" />
+      <End Role="Hire_details" EntitySet="Hire_details" />
+    </AssociationSet>
+    <AssociationSet Name="OutletVehicle" Association="myDbModel.OutletVehicle">
+      <End Role="Outlet" EntitySet="Outlets" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="OutletStaff" Association="myDbModel.OutletStaff">
+      <End Role="Outlet" EntitySet="Outlets" />
+      <End Role="Staff" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="Customer_Business_customerVehicle" Association="myDbModel.Customer_Business_customerVehicle">
+      <End Role="Customer_Business_customer" EntitySet="Customer_Business_customer" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="Customer_Business_customerHire_details">
+    <End Type="myDbModel.Customer_Business_customer" Role="Customer_Business_customer" Multiplicity="1" />
+    <End Type="myDbModel.Hire_details" Role="Hire_details" Multiplicity="1" />
+  </Association>
+  <Association Name="OutletVehicle">
+    <End Type="myDbModel.Outlet" Role="Outlet" Multiplicity="1" />
+    <End Type="myDbModel.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outlet">
+        <PropertyRef Name="Outlet_Id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="OutletOutlet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OutletStaff">
+    <End Type="myDbModel.Outlet" Role="Outlet" Multiplicity="1" />
+    <End Type="myDbModel.Staff" Role="Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outlet">
+        <PropertyRef Name="Outlet_Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="OutletOutlet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customer_Business_customerVehicle">
+    <End Type="myDbModel.Customer_Business_customer" Role="Customer_Business_customer" Multiplicity="1" />
+    <End Type="myDbModel.Vehicle" Role="Vehicle" Multiplicity="1" />
+  </Association>
+</Schema>

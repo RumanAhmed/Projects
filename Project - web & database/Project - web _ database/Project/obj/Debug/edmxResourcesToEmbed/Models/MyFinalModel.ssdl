@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="myDbModelComplete.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="L_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Drivers_license" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Phone_no" Type="bigint" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hires">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DaysRented" Type="smallint" Nullable="false" />
+    <Property Name="FaultFound" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="FaultDetails" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="VehicleId" Type="nvarchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Outlets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staffs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Salary" Type="int" Nullable="false" />
+    <Property Name="StreetAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ni_no" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="OutletId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="7" Nullable="false" />
+    <Property Name="Make" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mileage" Type="int" Nullable="false" />
+    <Property Name="FuelType" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="EngineSize" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="OutletId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CustomerHire">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Hires" Type="Self.Hires" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hires">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutletStaff">
+    <End Role="Outlets" Type="Self.Outlets" Multiplicity="1" />
+    <End Role="Staffs" Type="Self.Staffs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outlets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staffs">
+        <PropertyRef Name="OutletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutletVehicle">
+    <End Role="Outlets" Type="Self.Outlets" Multiplicity="1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outlets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="OutletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleHire">
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+    <End Role="Hires" Type="Self.Hires" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hires">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="myDbModelCompleteStoreContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hires" EntityType="Self.Hires" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Outlets" EntityType="Self.Outlets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staffs" EntityType="Self.Staffs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CustomerHire" Association="Self.FK_CustomerHire">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Hires" EntitySet="Hires" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutletStaff" Association="Self.FK_OutletStaff">
+      <End Role="Outlets" EntitySet="Outlets" />
+      <End Role="Staffs" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutletVehicle" Association="Self.FK_OutletVehicle">
+      <End Role="Outlets" EntitySet="Outlets" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleHire" Association="Self.FK_VehicleHire">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="Hires" EntitySet="Hires" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="myDbModelStoreContainer" CdmEntityContainer="myDbEntitiesFinale">
+    <EntitySetMapping Name="Customer_Business_customer">
+      <EntityTypeMapping TypeName="myDbModel.Customer_Business_customer">
+        <MappingFragment StoreEntitySet="Customer/Business customer">
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="F_name" ColumnName="F_name" />
+          <ScalarProperty Name="L_name" ColumnName="L_name" />
+          <ScalarProperty Name="Company_name" ColumnName="Company_name" />
+          <ScalarProperty Name="D_o_b" ColumnName="D_o_b" />
+          <ScalarProperty Name="Drivers_license_no" ColumnName="Drivers_license_no" />
+          <ScalarProperty Name="Phone_no" ColumnName="Phone_no" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Post_code" ColumnName="Post_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hire_details">
+      <EntityTypeMapping TypeName="myDbModel.Hire_details">
+        <MappingFragment StoreEntitySet="Hire_details">
+          <ScalarProperty Name="Hire_no" ColumnName="Hire_no" />
+          <ScalarProperty Name="Days_rented" ColumnName="Days_rented" />
+          <ScalarProperty Name="Date_checked" ColumnName="Date_checked" />
+          <ScalarProperty Name="Fault_found" ColumnName="Fault_found" />
+          <ScalarProperty Name="Fault_details" ColumnName="Fault_details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Outlets">
+      <EntityTypeMapping TypeName="myDbModel.Outlet">
+        <MappingFragment StoreEntitySet="Outlet">
+          <ScalarProperty Name="Outlet_Id" ColumnName="Outlet_Id" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="myDbModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="Staff_Id" ColumnName="Staff_Id" />
+          <ScalarProperty Name="S_f_name" ColumnName="S_f_name" />
+          <ScalarProperty Name="S_l_name" ColumnName="S_l_name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Street_address" ColumnName="Street_address" />
+          <ScalarProperty Name="Ni_no" ColumnName="Ni_no" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="myDbModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="Vehicle_reg" ColumnName="Vehicle_reg" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Milage" ColumnName="Milage" />
+          <ScalarProperty Name="Mot_date" ColumnName="Mot_date" />
+          <ScalarProperty Name="Hire_Rate" ColumnName="Hire_Rate" />
+          <ScalarProperty Name="Engine_size" ColumnName="Engine_size" />
+          <ScalarProperty Name="Fuel_type" ColumnName="Fuel_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
