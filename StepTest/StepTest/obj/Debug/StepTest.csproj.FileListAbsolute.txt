@@ -1,0 +1,27 @@
+//fs3/Year14$/S14002599/University_work/Year 2/StepTest/StepTest/bin/Debug/StepTest.exe.config
+//fs3/Year14$/S14002599/University_work/Year 2/StepTest/StepTest/bin/Debug/StepTest.exe
+//fs3/Year14$/S14002599/University_work/Year 2/StepTest/StepTest/bin/Debug/StepTest.pdb
+//fs3/Year14$/S14002599/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.Form1.resources
+//fs3/Year14$/S14002599/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.Properties.Resources.resources
+//fs3/Year14$/S14002599/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.csproj.GenerateResource.Cache
+//fs3/Year14$/S14002599/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.exe
+//fs3/Year14$/S14002599/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.pdb
+//fs3/Year14$/S14002599/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.csprojResolveAssemblyReference.cache
+//fs3/Year14$/S14002599/My Videos/University_work/Year 2/StepTest/StepTest/bin/Debug/StepTest.exe.config
+//fs3/Year14$/S14002599/My Videos/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.exe
+//fs3/Year14$/S14002599/My Videos/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.pdb
+//fs3/Year14$/S14002599/My Videos/University_work/Year 2/StepTest/StepTest/bin/Debug/StepTest.exe
+//fs3/Year14$/S14002599/My Videos/University_work/Year 2/StepTest/StepTest/bin/Debug/StepTest.pdb
+//fs3/Year14$/S14002599/My Videos/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.csprojResolveAssemblyReference.cache
+//fs3/Year14$/S14002599/My Videos/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.Form1.resources
+//fs3/Year14$/S14002599/My Videos/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.Properties.Resources.resources
+//fs3/Year14$/S14002599/My Videos/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.csproj.GenerateResource.Cache
+Z:/University_work/Year 2/StepTest/StepTest/bin/Debug/StepTest.exe.config
+Z:/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.exe
+Z:/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.pdb
+/Volumes/WININSTALL/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.csprojAssemblyReference.cache
+/Volumes/WININSTALL/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.Form1.resources
+/Volumes/WININSTALL/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.Properties.Resources.resources
+/Volumes/WININSTALL/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.csproj.GenerateResource.cache
+/Volumes/WININSTALL/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.exe
+/Volumes/WININSTALL/University_work/Year 2/StepTest/StepTest/obj/Debug/StepTest.pdb
