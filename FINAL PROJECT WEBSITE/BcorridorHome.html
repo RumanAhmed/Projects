@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>UniWays</title>
+
+   
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/overwrite.css">
+	<link href="css/animate.min.css" rel="stylesheet"> 
+	<link href="css/style.css" rel="stylesheet" />	
+   <style>
+
+.
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    height: 250px;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+
+
+
+/* Clear floats */
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Style images */
+.container img.ava {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Style the right image */
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+    color: #999;
+}	
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change colour of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+</style>
+
+  </head>
+
+
+  <body>
+	
+	<header id="header">
+        <nav class="navbar navbar-fixed-top" role="banner">
+            <div class="container">
+                
+                    
+                    <a class="navbar-brand" href="index.html">UniWays</a>
+                </div>			
+<!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/styles.css')}}">
+
+    
+
+    <title>UniWaysf</title>
+  </head>
+
+  
+  <body>  
+
+            </div>	
+                
+        </nav>		
+    </header>	
+
+	<div class="slider">		
+		<div id="about-slider">
+			<div id="carousel-slider" class="carousel slide" data-ride="carousel">
+
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="index.html">Home</a>
+    <a href="bcorirdoor.html">B Corirdoor</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+
+	    
+    <!-- Content -->
+    
+		<div class="container">
+	<div id="one">
+			<div class="text-center">
+				<h3> B corridor </h3>
+				<h2><a href="Bcorirdoor.html" class="btn btn-primary">First Floor</a></h2>
+			</div>
+			<div class="row">
+										
+					</div>
+			
+			</div>
+		</div>
+		
+	
+	
+	<div id="two">
+		<div class="container">
+			<div class="text-center">
+				<h3>B corridor </h3>
+				<h2><a href="BcorirdoorGfloor.html" class="btn btn-primary">Ground Floor</a></h2>
+			</div>
+			<div class="row">
+										
+					</div>
+					
+				
+							</div>
+		</div>
+		</div>
+	
+	</div>
+	
+				
+			
+	
+	
+			</div>
+		</div>
+		
+	
+	<footer>
+		<div id="contact">
+			<div class="container">
+				<div class="text-center">
+					<h3>OPENING HOURS</h3>
+					<p>Monday - Friday
+						<br> 09:00 - 18:00 <br> Saturday/Sunday - CLOSED </p>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.2s">
+						<h2>Contact us</h2>
+						<p>Contact Us if you require further assistance.</p>				
+					</div>				
+					
+					<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.4s">
+						<h2>Contact Info</h2>
+						<ul>
+							<li><i class="fa fa-home fa-2x"></i> Glyndwr University, Mold Road, Wales </li><hr>
+							<li><i class="fa fa-phone fa-2x"></i> 01978 111111</li><hr>
+							<li><i class="fa fa-envelope fa-2x"></i> Maps@glyndwr.uk</li>
+						</ul>
+					</div>
+					
+					
+						
+					
+					</div>	
+				</div>
+			</div>
+		</div>			
+				
+		<div class="social-icon">
+			<div class="container">
+				<div class="col-md-6 col-md-offset-3">						
+					<ul class="social-network">
+						<li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+						<li><a href="#" class="dribbble tool-tip" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
+						<li><a href="#" class="pinterest tool-tip" title="Pinterest"><i class="fa fa-pinterest-square"></i></a></li>
+					</ul>						
+				</div>
+			</div>
+		</div>						
+		
+</div>		
+	</footer>
+    <script src="js/jquery-2.1.1.min.js"></script>		
+    <script src="js/bootstrap.min.js"></script>	
+	<script src="js/parallax.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="js/fliplightbox.min.js"></script>
+	<script src="js/functions.js"></script>
+	<script>
+	wow = new WOW(
+	 {
+	
+		}	) 
+		.init();
+	</script>
+
+
+
+
+  
+  </body>
+</html>
+
